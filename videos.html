@@ -13,6 +13,7 @@
 <body>
 	<div class="container">
     <div class="jumbotron">
+        <p>Points: <span id="points-span">0</span></p>
         <h1><a href="index.html">Inkler</a></h1>
       <p>Your new habbit</p>
     </div>
@@ -78,7 +79,7 @@
           videoId: 'HXg-FZsWuuM',
           events: {
             'onReady': onPlayerReady,
-           // 'onStateChange': onPlayerStateChange
+            'onStateChange': onPlayerStateChange
           }
         });
       }
@@ -90,11 +91,19 @@
 
       var done = false;
       function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
+        //if (event.data == YT.PlayerState.PLAYING && !done) {
+        //  setTimeout(stopVideo, 6000);
+        //  done = true;
+        //}
+        if(event.data == YT.PlayerState.ENDED && !done){
           done = true;
+          var points = parseInt($('#points-span').text());
+          points++;
+          $('#points-span').text(points);
         }
+
       }
+
       function stopVideo() {
         player.stopVideo();
       }
