@@ -10,50 +10,29 @@
 	<link rel="stylesheet" href="bootstrap-3.2.0/css/bootstrap-theme.min.css">
 	
 </head>
-<body>
-<div class="container">
+<body style="background-image: url(background.jpg);">
+<div class="container" style="background-color:#e7e7e7;">
+  <div class="jumbotron" style="background-color:#00BBA6;padding:0px;margin-bottom:2px;">
+    <img src="p.png" style="height:150px;display: block;">    
+        
+    </div>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">Inkler</a>
-        <a class="navbar-brand" href="questions.html">Questions</a>
-        <a class="navbar-brand" href="videos.html">Videos</a>
-        <a class="navbar-brand" href="store.html">Store</a>
+      <div class="navbar-header" style="width:100%">
+        <a class="navbar-brand btn-default" href="index.html" style="width: 25%;border-left: 1px solid black;text-align: center;height: 50px;">Inkler</a>
+        <a class="navbar-brand btn-default" href="questions.html" style="width: 25%;border-left: 1px solid black;text-align: center;">Questions</a>
+        <a class="navbar-brand btn-default" href="videos.html" style="width: 25%;border-left: 1px solid black;text-align: center;">Videos</a>
+        <a class="navbar-brand btn-default" href="store.html" style="width: 25%;text-align: center;border-left: 1px solid black;border-right: 1px solid black;">Store</a>
       </div> 
     </div><!-- /.container-fluid -->
   </nav>
 
   <div class="row col-xs-8" style="float:left; margin-left:auto;">
     <div class="">
-      <div>
-        What is the color of Santa Claus's coat?
-      </div>
-      <a href="#" class="thumbnail">
-        <img src="santa.jpg" style="width: 90%; display: block;">
-      </a>
+     
     </div> 
   </div>
-  <div>
-    <nav class="navbar navbar-inverse col-xs-4" role="navigation" style="float: right;">
-      <ul class="nav nav-pills nav-stacked">
-        <li>
-          <button type="button" class="btn btn-default btn-lg col-xs-12">
-            <span class="glyphicon glyphicon-usd"></span> Question 1
-          </button>
-        </li>
-        <li>
-          <button type="button" class="btn btn-default btn-lg col-xs-12">
-            <span class="glyphicon glyphicon-usd"></span> Question 2
-          </button>
-        </li>
-        <li>
-          <button type="button" class="btn btn-default btn-lg col-xs-12">
-            <span class="glyphicon glyphicon-usd"></span> Question 3
-          </button>
-        <li>
-      </ul>
-    </nav>
   <div class="row" style="float: right;">
     <div class="col-lg-8">
       <div class="input-group">
@@ -71,7 +50,31 @@
       <label class="form-control">BLACK</label>
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
-  
+  <ul class="nav nav-pills nav-stacked col-md-2" style="float:right;">
+  <li class="active"><a href="#tab_a" data-toggle="pill">Question 1</a></li>
+  <li><a href="#tab_b" data-toggle="pill">Question 2</a></li>
+  <li><a href="#tab_c" data-toggle="pill">Question 3</a></li>
+</ul>
+<div class="tab-content col-md-10">
+        <div class="tab-pane active" id="tab_a">
+             <div>
+        What is the color of Santa Claus's coat?
+      </div>
+      <a href="#" class="thumbnail">
+        <img src="santa.jpg" style="width: 90%; display: block;">
+      </a>
+        </div>
+        <div class="tab-pane" id="tab_b">
+             <h4>Pane B</h4>
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+                ac turpis egestas.</p>
+        </div>
+        <div class="tab-pane" id="tab_c">
+             <h4>Pane C</h4>
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+                ac turpis egestas.</p>
+        </div>
+</div><!-- tab content -->
   </div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
 </div>
