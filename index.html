@@ -6,12 +6,14 @@
    <div class="container">
       
    </div>
-	<script src="scripts/jquery-2.1.1.min.js"></script>
-	<script src="bootstrap-3.2.0/js/bootstrap.min.js"></script>
-	
-	<link rel="stylesheet" href="bootstrap-3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="bootstrap-3.2.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="styles/site.css">
+	<script type="text/javascript" src="scripts/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="bootstrap-3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="scripts/knockout-3.2.0.js"></script>
+  
+  
+  <link rel="stylesheet" href="bootstrap-3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap-3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="styles/site.css">
 </head>
 <body style="background-image: url(background.jpg);">
 <div style="background-color:rgb(244, 242, 242);width:100%;">
@@ -21,7 +23,7 @@
 </div>
 
 <div style="background-color:#00BBA6;height:10px;width:100%;"></div>
-<div class="container" style="background-color:#e7e7e7;">
+<div class="container" style="background-color:rgba(231, 231, 231, 0.22);">
   <div class="jumbotron" style="background-color:#00BBA6;padding:0px;margin-bottom:2px;">
        
         
@@ -46,28 +48,18 @@
 
 
 	<div class="row">
-      <div class="col-xs-6 col-md-3">
+      <div class="col-xs-12">
         <a href="#" class="thumbnail">
-          <img src="zarko.jpg" style="height: 168px; width: 168px; display: block;">
+          <!-- 16:9 aspect ratio -->
+          <div class="embed-responsive embed-responsive-16by9">
+               <div id="player">
+               </div> 
+          </div>
         </a>
-      </div>
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
-        </a>
-      </div>
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
-        </a>
-      </div>
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-          <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzEiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9Ijg1LjUiIHk9IjkwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEycHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTcxeDE4MDwvdGV4dD48L3N2Zz4=" style="height: 180px; width: 100%; display: block;">
-        </a>
-      </div>
-    </div>
-
+      </div> 
+  </div>
 </div>
+<div style="background-color:#00BBA6;height:30px;width:100%; color:white;text-align:right;font-size:20px;padding-right:20px;">Made by Giovanni and Filippo</div>
 </body>
+<script type="text/javascript" src="scripts/videos.js"></script>
 </html>
