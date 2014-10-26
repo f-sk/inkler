@@ -1,4 +1,7 @@
-
+  var getRandomInt = function(range){
+    return Math.floor(Math.random() * (range + 1));
+  }
+  
   var playerDiv = document.getElementById('player');
 
   var tag = document.createElement('script');
@@ -14,7 +17,7 @@
     player = new YT.Player('player', {
       height: '390',
       width: '640',
-      videoId: 'HXg-FZsWuuM',
+      videoId: MyViewModel.array[0].id,//'HXg-FZsWuuM',
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange
@@ -81,7 +84,15 @@
                   new Video('B-hKob9p0lQ', 'A Tale of Momentum & Inertia'),
                   new Video('83efOb27Td4', 'Old man shows some major skills!'),
                   new Video('irpVyPBwD6M', 'Кировские заправщики настолько суровы'),
-                  new Video('XlbVB50mIh4', 'PHOTOMATH')];
+                  new Video('XlbVB50mIh4', 'PHOTOMATH'),
+                  new Video('zJFsnYysqwo', 'Vines compilation 1'),
+                  new Video('YvSqiKCu1nI', 'Vines compilation 2'),
+                  new Video('2X3uYcxnwKc', 'Vines compilation 3'),
+                  new Video('XUil0qmMhvc', 'Реклама на Глобул'),
+                  new Video('moxthU88rqA', 'Mtel - Ти водиш'),
+                  new Video('EEvfdopXEZY', 'Македонска наденица Leki'),
+                  new Video('Z2rWAxKtN80', 'Veda Bulgarika - The Defenders'),
+                  new Video('B6fbo3vVdww', 'REKLAMA VODKA SAVOY')];
 
     this.push = function (video){
       video.inserted = true;
@@ -101,6 +112,15 @@
       selectedVid.viewed = true;
     }
 
+    this.shuffle = function(){
+      function shuffle(o){
+        for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+      };
+
+      this.array = shuffle(this.array);
+    }
+
     this.getVideo = function(){
       for(var i = 0; i < this.array.length; i++){
         if(!this.array[i].inserted && !this.array[i].viewed){
@@ -113,4 +133,6 @@
   };
 
   var MyViewModel = new AppViewModel();
+  MyViewModel.shuffle();
   ko.applyBindings(MyViewModel);
+
