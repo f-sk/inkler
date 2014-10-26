@@ -3,8 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inkler | Your new habbit</title>
-	<script src="scripts/jquery-2.1.1.min.js"></script>
-	<script src="bootstrap-3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="bootstrap-3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="scripts/knockout-3.2.0.js"></script>
+  
 	
 	<link rel="stylesheet" href="bootstrap-3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="bootstrap-3.2.0/css/bootstrap-theme.min.css">
@@ -36,23 +38,24 @@
         <div id="player">
         </div>    
       </div>
-      <div class="col-xs-5">
+      <div class="col-xs-5" data-bind="foreach: array.slice(0,4)">
         
-        <div class="row">
+        <div class="row video-list">
           <div class="col-xs-12">
-            <h1>Video 1</h1>
+
+            <a href="#" class="video-link">
+            <div class="col-xs-4">
+              <img data-bind="attr: {src: videoTumbnail()}" aria-hidden="true" alt="" width="120" height="90">
+            </div>
+            <div class="col-xs-8">
+              <p data-bind="text: name" style="height:90px;line-height:90px;overflow:hidden"></p>
+            </div>
+            </a>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <h1>Video 2</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <h1>Video 3</h1>
-          </div>
-        </div>
+        
+        
+        
       </div>
     </div>
     
@@ -62,50 +65,5 @@
   
 
 </body>
-<script>
-      var playerDiv = document.getElementById('player');
-
-      var tag = document.createElement('script');
-
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: 'HXg-FZsWuuM',
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
-
-      function onPlayerReady(event) {
-        event.target.seekTo(5);
-        event.target.playVideo();
-      }
-
-      var done = false;
-      function onPlayerStateChange(event) {
-        //if (event.data == YT.PlayerState.PLAYING && !done) {
-        //  setTimeout(stopVideo, 6000);
-        //  done = true;
-        //}
-        if(event.data == YT.PlayerState.ENDED && !done){
-          done = true;
-          var points = parseInt($('#points-span').text());
-          points++;
-          $('#points-span').text(points);
-        }
-
-      }
-
-      function stopVideo() {
-        player.stopVideo();
-      }
-    </script>
+<script type="text/javascript" src="scripts/videos.js"></script>
 </html>
