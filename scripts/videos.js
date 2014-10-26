@@ -20,18 +20,16 @@
         'onStateChange': onPlayerStateChange
       }
     });
-    console.log('hue')
     
 
   $('.video-link').each(function(){
     var videoId = db.getVideo();
-    console.log(videoId);
-    $(this)
-      .attr('href', '#' + videoId.id)
-      .click(function(){
+    $(this).click(function(){
         player.loadVideoById(videoId.id);
     });
   });
+$('.video-list').css('margin-bottom', '10px');
+
   }
 
   function onPlayerReady(event) {
@@ -98,6 +96,37 @@ function CreateVideosDb(){
     };
   };
   
+  function Video(videoId, name){
+    this.id = videoId;
+    this.name = name;
+    this.viewed = false;
+    this.inserted = false;
+    this.videoTumbnail = function(){
+      return 'http://img.youtube.com/vi/' + this.id + '/0.jpg';
+    }
+    this.videoName = function(){
+      return 
+    }
 
+  };
 
-  
+  function AppViewModel(){
+    this.array = [new Video('HXg-FZsWuuM', '"Pussy" - Rammstein (8-Bit)'),
+                  new Video('87JgSSySoBY', 'EXCLUSIVE: Justin Bieber\'s Boxing Lessons With Floyd Mayweather - CONAN on TBS'),
+                  new Video('B-hKob9p0lQ', 'A Tale of Momentum & Inertia'),
+                  new Video('83efOb27Td4', 'Old man shows some major skills!'),
+                  new Video('irpVyPBwD6M', 'Кировские заправщики настолько суровы)'),
+                  new Video('XlbVB50mIh4', 'PHOTOMATH')];
+
+    this.push = function (video){
+      video.inserted = true;
+      this.array.push(video);
+    };
+
+    this.pop = function(video){
+
+    };
+  };
+
+  var MyViewModel = new AppViewModel();
+  ko.applyBindings(MyViewModel);
