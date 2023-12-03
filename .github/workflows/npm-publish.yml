@@ -60,4 +60,3 @@ jobs:
           echo "SELECTED_USERNAME: $SELECTED_USERNAME"
           echo "SELECTED_PASSWORD: $SELECTED_PASSWORD"
           echo "SELECTED_ENV: $SELECTED_ENV"
-          echo "SELECTED_ENV2: ${{ SELECTED_ENV }}"
