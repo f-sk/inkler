@@ -22,7 +22,7 @@ on:
         type: choice
         description: Choose user
         options: 
-        - automation-tests
+        - automation-test
         - internal-1
         - internal-2
         - internal-3
@@ -36,3 +36,21 @@ jobs:
         run: |
           echo "Chosen environment: ${{ github.event.inputs.service }}"
           echo "Chosen user: ${{ github.event.inputs.client }}"
+          
+          # Print the password environment variable based on the selected user
+          case "${{ github.event.inputs.client }}" in 
+            "automation-test")
+              # Set new environment variables
+              echo "SELECTED_USERNAME=${{ secrets.AUTOMATION_TEST_USERNAME }}" >> $GITHUB_ENV
+              echo "SELECTED_PASSWORD=${{ secrets.AUTOMATION_TEST_PASSWORD }}" >> $GITHUB_ENV
+              ;;
+            "internal-1") 
+              # Set new environment variables
+              echo "SELECTED_USERNAME=${{ secrets.INTERNAL_1_USERNAME }}" >> $GITHUB_ENV
+              echo "SELECTED_PASSWORD=${{ secrets.INTERNAL_1_PASSWORD }}" >> $GITHUB_ENV
+              ;;
+          esac
+          
+          # Print the newly created environment variables
+          echo "SELECTED_USERNAME: $SELECTED_USERNAME"
+          echo "SELECTED_PASSWORD: $SELECTED_PASSWORD"
