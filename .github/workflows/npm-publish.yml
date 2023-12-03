@@ -60,8 +60,4 @@ jobs:
           echo "SELECTED_USERNAME: $SELECTED_USERNAME"
           echo "SELECTED_PASSWORD: $SELECTED_PASSWORD"
           echo "SELECTED_ENV: $SELECTED_ENV"
-      - name: Set secret as environment variable
-        run: |
-          export AT_USERNAME="${{ secrets.AUTOMATION_TEST_PASSWORD1 }}"
-          echo "AT Username $AT_USERNAME"
-          
+          echo "SELECTED_ENV2: ${{ SELECTED_ENV }}"
