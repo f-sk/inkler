@@ -18,7 +18,7 @@ on:
         - cci-staging
         - app-staging
         - xnl-training
-      client:
+      user:
         type: choice
         description: Choose user
         options: 
@@ -35,16 +35,18 @@ jobs:
       - name: Print chosen variables
         run: |
           echo "Chosen environment: ${{ github.event.inputs.service }}"
-          echo "Chosen user: ${{ github.event.inputs.client }}"
+          echo "Chosen user: ${{ github.event.inputs.user }}"
           
           # Print the password environment variable based on the selected user
-          case "${{ github.event.inputs.client }}" in 
-            "automation-test")
+          case "${{ github.event.inputs.user }}" in "automation-test")
+              echo "inside automation test case"
               # Set new environment variables
               echo "SELECTED_USERNAME=${{ secrets.AUTOMATION_TEST_USERNAME }}" >> $GITHUB_ENV
               echo "SELECTED_PASSWORD=${{ secrets.AUTOMATION_TEST_PASSWORD }}" >> $GITHUB_ENV
               ;;
-            "internal-1") 
+          asac
+          case "${{ github.event.inputs.user }}" in "internal-1") 
+               echo "inside internal-1 test case"
               # Set new environment variables
               echo "SELECTED_USERNAME=${{ secrets.INTERNAL_1_USERNAME }}" >> $GITHUB_ENV
               echo "SELECTED_PASSWORD=${{ secrets.INTERNAL_1_PASSWORD }}" >> $GITHUB_ENV
