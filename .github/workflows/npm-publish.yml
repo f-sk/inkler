@@ -1,0 +1,38 @@
+name: Build and Deploy backend services
+run-name: Building ${{ github.event.inputs.service }} from ${{ github.ref_name }}
+
+on: 
+  workflow_dispatch:
+    inputs:
+      service:
+        type: choice
+        description: Choose environment
+        options: 
+        - qa-aut
+        - qa-int
+        - ld-staging
+        - player-test
+        - au-qa
+        - au-uat
+        - test-a
+        - cci-staging
+        - app-staging
+        - xnl-training
+      client:
+        type: choice
+        description: Choose user
+        options: 
+        - automation-tests
+        - internal-1
+        - internal-2
+        - internal-3
+        - marija@gmail.com
+
+jobs:
+  print-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print chosen variables
+        run: |
+          echo "Chosen environment: ${{ github.event.inputs.service }}"
+          echo "Chosen user: ${{ github.event.inputs.client }}"
