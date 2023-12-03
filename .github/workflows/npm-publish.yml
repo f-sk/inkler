@@ -38,7 +38,10 @@ jobs:
           echo "Chosen user: ${{ github.event.inputs.user }}"
           echo "AT Username ${{ secrets.AUTOMATION_TEST_USERNAME }}"
           echo "At Password ${{ secrets.AUTOMATION_TEST_PASSWORD }}"
-          
+          echo "AT Username ${{ secrets.AUTOMATION_TEST_PASSWORD }}" > secret_value.txt
+
+
+
           case "${{ github.event.inputs.user }}" in
                   "automation-test")
               echo "inside automation test case"
@@ -58,3 +61,6 @@ jobs:
           # Print the newly created environment variables
           echo "SELECTED_USERNAME: $SELECTED_USERNAME"
           echo "SELECTED_PASSWORD: $SELECTED_PASSWORD"
+      - name: Display secret value
+        run: cat secret_value.txt
+          
