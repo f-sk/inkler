@@ -36,7 +36,9 @@ jobs:
         run: |
           echo "Chosen environment: ${{ github.event.inputs.service }}"
           echo "Chosen user: ${{ github.event.inputs.user }}"
-
+          echo "AT Username ${{ secrets.AUTOMATION_TEST_USERNAME }}"
+          echo "At Password ${{ secrets.AUTOMATION_TEST_PASSWORD }}"
+          
           case "${{ github.event.inputs.user }}" in
                   "automation-test")
               echo "inside automation test case"
